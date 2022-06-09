@@ -8,8 +8,7 @@ app = Flask(__name__)
 db=SQLAlchemy(app)
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:badar@localhost/pdp'
-
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:adil2210@localhost:3307/fyp_pdp'
 import models
 db.create_all()
 
