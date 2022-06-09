@@ -9,6 +9,7 @@ itsdangerous==2.1.2
 Jinja2==3.1.2
 MarkupSafe==2.1.1
 pycparser==2.21
+passlib==1.7.4
 PyMySQL==1.0.2
 SQLAlchemy==1.4.37
 Werkzeug==2.1.2
