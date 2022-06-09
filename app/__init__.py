@@ -10,6 +10,7 @@ db=SQLAlchemy(app)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:badar@localhost/pdp'
 
+
 import models
 db.create_all()
 
