@@ -1,7 +1,7 @@
 from app import app
 from flask import *
 from passlib.hash import pbkdf2_sha256
-from models import signup
+from models import user
 import datetime
 import jwt
 

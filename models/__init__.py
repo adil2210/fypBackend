@@ -1,1 +1,2 @@
-from models.signup import *
+from models.user import *
+from models.docProfileSetting import profile
