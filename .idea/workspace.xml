@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="610843f3-1e98-448c-b7d3-f2e0a94f5b3c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/models/signup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Fyp_backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Fyp_backend.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/signup.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/signup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/user.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,13 +112,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Adil Nisar/PycharmProjects/fypBackend",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Adil Nisar/PycharmProjects/fypBackend&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Adil Nisar\PycharmProjects\fypBackend\api\docProfile" />
+      <recent name="C:\Users\Adil Nisar\PycharmProjects\fypBackend\models\docProfileSetting" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Fyp_backend" type="PythonConfigurationType" factoryName="Python" singleton="true">
       <module name="Fyp_backend" />
@@ -159,7 +158,9 @@
       <option name="presentableId" value="Default" />
       <updated>1654424161480</updated>
       <workItem from="1654426741431" duration="2701000" />
-      <workItem from="1654709294547" duration="8310000" />
+      <workItem from="1654709294547" duration="27127000" />
+      <workItem from="1654854089933" duration="3382000" />
+      <workItem from="1654943229231" duration="691000" />
     </task>
     <servers />
   </component>
