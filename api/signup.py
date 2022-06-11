@@ -1,11 +1,11 @@
 from flask import *
 from passlib.hash import pbkdf2_sha256
-from app import db
+from app import db,app
+from models import User
 
-
-@app.route('/signup' ,methods=['GET','POST'])
+@app.route('/signup' ,methods=['POST'])
 def signup():
-    if (request.method == 'POST'):
+    if request.method == 'POST':
         signupAPI = request.get_json()
         userName = signupAPI['firstName'] + " " + signupAPI['lastName']
         email = signupAPI['email']
@@ -13,16 +13,16 @@ def signup():
         hashed = pbkdf2_sha256.hash(password)
         phoneNo = signupAPI['phone']
         role = signupAPI['role']
-        checkEmail = signup.query.filter_by(email=email).first()
-        checkphone = signup.query.filter_by(phoneno=phoneNo).first()
+        checkEmail = User.query.filter_by(email=email).first()
+        checkphone = User.query.filter_by(phoneNo=phoneNo).first()
 
-        if checkEmail!=None and checkphone!=None:
+        if checkEmail!=None or checkphone!=None:
             return make_response("Email or PhoneNo already exists!"),400
         else:
             if checkEmail == None:
                 if checkphone == None:
-                    newUser = signup(userName=userName, email=email,
-                                     password=hashed, phoneNo=phoneNo, role=role)
+                    newUser = User(userName=userName, email=email,
+                                     password=hashed, phoneNo=phoneNo, role=role, isProfileCompleted=False)
                     db.session.add(newUser)
                     db.session.commit()
                     return make_response("added"),200

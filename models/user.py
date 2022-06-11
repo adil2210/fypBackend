@@ -1,7 +1,9 @@
-from app import db
+from app import db, login_manager
+from flask_login import UserMixin
 
 
-class User(db.Model):
+
+class User(UserMixin,db.Model):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
     userName = db.Column(db.String(80), nullable=False)
@@ -10,3 +12,9 @@ class User(db.Model):
     password = db.Column(db.String(120), nullable=False)
     isProfileCompleted=db.Column(db.Boolean,nullable=False)
     role = db.Column(db.String(120),nullable=False)
+
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)

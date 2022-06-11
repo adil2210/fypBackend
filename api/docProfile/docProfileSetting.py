@@ -1,12 +1,13 @@
-from flask import *
-from models.docProfileSetting import profile, service
-from models import *
+from models import Profile, User, Services, Education, Experience, Specialization
+from app import app, db
 from sqlalchemy import and_, or_, not_, update, func, delete
+from flask_login import current_user
+from flask import request, make_response
 
 
 @app.route('/docProfile', methods=['POST'])
 def docProfileSettings():
-    if (request.method == 'POST'):
+    if request.method == 'POST':
         docProfileApi = request.get_json()
         firstName = docProfileApi['firstName']
         lastName = docProfileApi['lastName']
@@ -24,38 +25,42 @@ def docProfileSettings():
         specialization = docProfileApi['specialization']
         education = docProfileApi['education']
         experience = docProfileApi['experience']
-        getData = profile.query.filter(profile.phoneNo == phoneNo).first()
+
+        getData = Profile.query.filter(Profile.phoneNo == phoneNo).first()
+        print(current_user.id)
+        user = User.query.filter(User.id == current_user.id).first()
 
         if getData != None:
             return make_response("Record already added!")
         else:
-            stmt = (update(user).where(user.id == docProfileApi['id']).values(role="Doctor", isProfileCompleted=True))
-            db.session.execute(stmt)
+            user.isProfileCompleted = True
+            user.role = None
+            db.session.add(user)
             db.session.commit()
-            addData = profile(firstName=firstName, lastName=lastName, phoneNo=phoneNo, gender=gender, dob=dob,
-                              biography=biography,
+            profile_data = Profile(user_id=current_user.id, firstName=firstName, lastName=lastName, phoneNo=phoneNo,
+                              gender=gender, dob=dob, biography=biography,
                               address=address, city=city, state=state, country=country, postalCode=postalCode,
                               pricing=pricing)
-            db.session.add(addData)
+            db.session.add(profile_data)
             db.session.commit()
 
+
         for i in services:
-            addDataServ = service(services=services)
+            addDataServ = Services(pid=profile_data.id ,services=i)
             db.session.add(addDataServ)
             db.session.commit()
 
         for i in specialization:
-            addDataSpecia = specialization(specialization=specialization)
+            addDataSpecia = specialization(pid=profile_data, specialization=i)
             db.session.add(addDataSpecia)
             db.session.commit()
-
         for i in education:
-            addDataEdu = education(degree=('degree'), institute=('institute'), yearOfCompletion=('yearOfCompletion'))
+            addDataEdu = education(pid=profile_data,degree=i['degree'], institute=i['institute'], yearOfCompletion=i['yearOfCompletion'])
             db.session.add(addDataEdu)
             db.session.commit()
 
         for i in experience:
-            addDataExp = experience(hospitalName=('hospitalName'), start=('start'), end=('end'),
-                                    designation=('designation'))
+            addDataExp = experience(pid=profile_data,hospitalName=i['hospitalName'], start=i['start'], end=i['end'],
+                                    designation=i['designation'])
             db.session.add(addDataExp)
             db.session.commit()
