@@ -1,6 +1,6 @@
 from flask import *
 from passlib.hash import pbkdf2_sha256
-from app import db
+from app import db,app
 
 
 @app.route('/signup' ,methods=['GET','POST'])
