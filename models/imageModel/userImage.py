@@ -1,9 +1,8 @@
 from app import db
 
 
-class Specialization(db.Model):
-    __tablename__ = 'specialization'
+class Image(db.Model):
+    __tablename__ = 'image'
     id = db.Column(db.Integer, primary_key=True)
     pid = db.Column(db.Integer, db.ForeignKey('profile.id'))
-    specialization = db.Column(db.String(80), default=None)
-
+    imagePath = db.Column(db.String(200), default=None)

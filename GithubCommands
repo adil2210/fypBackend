@@ -1,0 +1,10 @@
+for push:
+- git status
+- git add agy vo file file ka path jo ap ne push krni hai
+- git commit -m "blah blah blah"
+- git push origin agy branch ka name e.g. main or koi b
+
+for pull:
+- sb sy phly apni local changes ko ya to commit kero ya
+phir stash kro
+- phir git pull ker do
